@@ -2,10 +2,10 @@ import { History } from '@/services/history/history.interface';
 
 export const listCurrentHistory: History[] = [
   {
-    id: '1',
+    id: 1,
     timestamp: '2023-10-01T12:00:00Z',
     site_url: 'https://example.com',
-    site_name: 'Example Site',
+    site_name: 'プロジェクトアルファ',
     view_type: '1920x1080',
     user_prompt: 'Analyze the performance of the homepage.',
     analysis_prompt: 'Analyze the homepage for performance issues.',
@@ -32,13 +32,14 @@ export const listCurrentHistory: History[] = [
       current: '/images/current.png',
       diff: '/images/diff.png'
     },
-    totalToken: 1500
+    totalToken: 1500,
+    totalHistory: 20
   },
   {
-    id: '2',
+    id: 2,
     timestamp: '2023-10-02T12:00:00Z',
     site_url: 'https://example.org',
-    site_name: 'Example Org',
+    site_name: 'プロジェクトベータ',
     view_type: '1280x720',
     user_prompt: 'Summarize the performance of the landing page.',
     analysis_prompt: 'Summarize the landing page performance.',
@@ -59,13 +60,14 @@ export const listCurrentHistory: History[] = [
       current: '/images/current2.png',
       diff: '/images/diff2.png'
     },
-    totalToken: 2000
+    totalToken: 2000,
+    totalHistory: 15
   },
   {
-    id: '3',
+    id: 3,
     timestamp: '2023-10-03T12:00:00Z',
     site_url: 'https://example.net',
-    site_name: 'Example Net',
+    site_name: 'プロジェクトイプシロン',
     view_type: '1440x900',
     user_prompt: 'Analyze the performance of the contact page.',
     analysis_prompt: 'Analyze the contact page for performance issues.',
@@ -86,10 +88,11 @@ export const listCurrentHistory: History[] = [
       current: '/images/current3.png',
       diff: '/images/diff3.png'
     },
-    totalToken: 1800
+    totalToken: 1800,
+    totalHistory: 0
   },
   {
-    id: '4',
+    id: 4,
     timestamp: '2023-10-04T12:00:00Z',
     site_url: 'https://example.edu',
     site_name: 'Example Edu',
@@ -113,10 +116,11 @@ export const listCurrentHistory: History[] = [
       current: '/images/current4.png',
       diff: '/images/diff4.png'
     },
-    totalToken: 1700
+    totalToken: 1700,
+    totalHistory: 21
   },
   {
-    id: '5',
+    id: 5,
     timestamp: '2023-10-05T12:00:00Z',
     site_url: 'https://example.biz',
     site_name: 'Example Biz',
@@ -140,6 +144,7 @@ export const listCurrentHistory: History[] = [
       current: '/images/current5.png',
       diff: '/images/diff5.png'
     },
-    totalToken: 1900
+    totalToken: 1900,
+    totalHistory: 9
   }
 ];

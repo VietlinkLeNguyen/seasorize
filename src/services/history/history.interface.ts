@@ -11,7 +11,7 @@ export interface AnalysisResult {
 }
 
 export interface History {
-  id: string;
+  id: number;
   timestamp: string;
   site_url: string;
   site_name: string;
@@ -25,6 +25,7 @@ export interface History {
     diff: string;
   };
   totalToken: number;
+  totalHistory: number;
 }
 
 export interface HistoryParam {

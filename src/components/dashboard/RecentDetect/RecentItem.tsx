@@ -4,7 +4,7 @@ import { Card } from '../../ui/card';
 import { Button } from '@/components/ui/button';
 import { History } from '@/services/history/history.interface';
 import { ArrowRight } from 'lucide-react';
-export default function HistoryItem({ item }: { item: History }) {
+export default function RecentItem({ item }: { item: History }) {
   return (
     <Card className="rounded-lg border border-[#F0F1F3] py-4 px-5 card-shadow">
       <div className="flex flex-col gap-3">

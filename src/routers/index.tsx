@@ -1,6 +1,6 @@
 import Dashboard from '@/components/dashboard';
 import { ErrorBoundary } from '@/components/error/page';
-import History from '@/components/history';
+import HistoryPage from '@/components/history';
 import { DefaultLayout } from '@/components/layout';
 import URLManagement from '@/components/url-management';
 import { createBrowserRouter } from 'react-router';
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/history',
-        element: <History />
+        element: <HistoryPage />
       }
     ]
   }

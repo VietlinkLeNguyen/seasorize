@@ -1,9 +1,9 @@
 import { useHistory } from '@/services/history/history.swr';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
-import HistoryItem from './HistoryItem';
+import RecentItem from './RecentItem';
 
-export function ListHistory() {
+export function ListRecentDetected() {
   const { histories } = useHistory();
   return (
     <div>
@@ -20,7 +20,7 @@ export function ListHistory() {
       </div>
       <div className="flex flex-col gap-3">
         {histories.map((item, index) => (
-          <HistoryItem key={index} item={item} />
+          <RecentItem key={index} item={item} />
         ))}
       </div>
     </div>

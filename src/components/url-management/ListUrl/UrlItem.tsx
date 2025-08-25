@@ -5,18 +5,6 @@ import { Button } from '@/components/ui/button';
 import { IURLManagement } from '@/services/url/url.interface';
 import { EditIcon, PlayIcon, Trash2 } from 'lucide-react';
 export default function UrlItem({ item }: { item: IURLManagement }) {
-  const customFormatDateTime = (value: Date): string => {
-    const date = value.toLocaleDateString('ja-JP', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    });
-    return date;
-  };
   return (
     <Card className="rounded-lg border border-[#F0F1F3] py-4 px-5 card-shadow">
       <div className="flex flex-col gap-3">
@@ -53,7 +41,7 @@ export default function UrlItem({ item }: { item: IURLManagement }) {
           <div className="text-center">間隔: {1}時間</div>
           <div className="text-center">ビューポート {'1920x1080'}</div>
           <div>
-            最終チェック:{' '}
+            最終チェック:
             {/* Format to YYYY/MM/DD HH:mm: get first 16 characters, replace T by ' ' */}
             {new Date().toISOString().slice(0, 16).replace('T', ' ')}
           </div>
