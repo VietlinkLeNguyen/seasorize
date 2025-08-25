@@ -1,7 +1,6 @@
 import { useHistory } from '@/services/history/history.swr';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
-import UrlItem from './UrlItem';
 
 export function ListUrl() {
   const { histories } = useHistory();
@@ -19,9 +18,9 @@ export function ListUrl() {
         </Link>
       </div>
       <div className="flex flex-col gap-3">
-        {histories.map((item, index) => (
+        {/* {histories.map((item, index) => (
           <UrlItem key={index} item={item} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

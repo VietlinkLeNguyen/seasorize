@@ -1,4 +1,4 @@
-import { History } from '@/services/history/history.interface';
+import { IURLManagement } from '@/services/url/url.interface';
 import { PlusIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import CustomBreadcrumb from '../CustomBreadcrumb';
@@ -8,7 +8,7 @@ import UrlItem from './ListUrl/UrlItem';
 import PaginationCustom from './PaginationCustom';
 
 export default function URLManagement() {
-  const [listUrls, setListUrl] = useState<History[]>([]);
+  const [listUrls, setListUrl] = useState<IURLManagement[]>([]);
   const [page, setPage] = useState(1);
   const pagination = {
     pageSize: 10,
@@ -33,8 +33,12 @@ export default function URLManagement() {
           <UrlItem key={index} item={item} />
         ))}
       </div>
-      <div>
-        <PaginationCustom page={page} totalPage={pagination.totalPage} />
+      <div className="mt-3">
+        <PaginationCustom
+          currentPage={page}
+          totalPage={pagination.totalPage}
+          setPage={setPage}
+        />
       </div>
     </div>
   );

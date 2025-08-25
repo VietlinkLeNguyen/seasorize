@@ -11,6 +11,8 @@ const INTERVALS = ['1 hour', '6 hours', '12 hours', '1 day', '3 days'];
 export interface IURLManagement {
   site_name: string;
   site_url: string;
+  status: 'active' | 'inactive';
+  last_check: Date;
   view_type: ViewType;
   interval: (typeof INTERVALS)[number];
 }
