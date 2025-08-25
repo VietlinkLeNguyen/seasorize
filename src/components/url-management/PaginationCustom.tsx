@@ -30,13 +30,19 @@ export default function PaginationCustom({
         </Button>
         {currentPage > sibling + 2 ? (
           <>
-            <Button variant="ghost">1</Button>
+            <Button variant="ghost" onClick={() => setPage(1)}>
+              1
+            </Button>
             <PaginationEllipsis className="size-6" />
             {currentPage < totalPage - sibling - 1 && (
               <>
                 {Array.from({ length: sibling }, (_, i) => {
                   return (
-                    <Button variant="ghost" key={i}>
+                    <Button
+                      variant="ghost"
+                      key={i}
+                      onClick={() => setPage(currentPage - sibling + i)}
+                    >
                       {currentPage - sibling + i}
                     </Button>
                   );
@@ -44,7 +50,11 @@ export default function PaginationCustom({
                 <Button>{currentPage}</Button>
                 {Array.from({ length: sibling }, (_, i) => {
                   return (
-                    <Button variant="ghost" key={i}>
+                    <Button
+                      variant="ghost"
+                      key={i}
+                      onClick={() => setPage(currentPage + i + 1)}
+                    >
                       {currentPage + i + 1}
                     </Button>
                   );
@@ -58,7 +68,7 @@ export default function PaginationCustom({
               return currentPage == i + 1 ? (
                 <Button key={i}>{i + 1}</Button>
               ) : (
-                <Button variant="ghost" key={i}>
+                <Button variant="ghost" key={i} onClick={() => setPage(i + 1)}>
                   {i + 1}
                 </Button>
               );
@@ -71,7 +81,11 @@ export default function PaginationCustom({
               return currentPage == totalPage - sibling * 2 + i ? (
                 <Button key={i}>{totalPage - sibling * 2 + i}</Button>
               ) : (
-                <Button variant="ghost" key={i}>
+                <Button
+                  variant="ghost"
+                  key={i}
+                  onClick={() => setPage(totalPage - sibling * 2 + i)}
+                >
                   {totalPage - sibling * 2 + i}
                 </Button>
               );
@@ -80,7 +94,9 @@ export default function PaginationCustom({
         ) : (
           <>
             <PaginationEllipsis className="size-6" />
-            <Button variant="ghost">{totalPage}</Button>
+            <Button variant="ghost" onClick={() => setPage(totalPage)}>
+              {totalPage}
+            </Button>
           </>
         )}
         <Button
