@@ -7,7 +7,7 @@ import DetailItem from './DetailItem';
 
 interface ListHistoryProps {
   id: number | null;
-  selectHistory: (id: number) => void;
+  selectHistory: (id: number, tab: 'list' | 'detail' | 'analysis') => void;
 }
 export function ListHistoryDetail({ id, selectHistory }: ListHistoryProps) {
   const { histories } = useHistory();

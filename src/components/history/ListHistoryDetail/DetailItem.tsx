@@ -6,7 +6,7 @@ import { History } from '@/services/history/history.interface';
 import { ArrowUpRight } from 'lucide-react';
 interface HistoryItemProps {
   item: History;
-  selectUrl: (id: number) => void;
+  selectUrl: (id: number, tab: 'list' | 'detail' | 'analysis') => void;
 }
 export default function DetailItem({ item, selectUrl }: HistoryItemProps) {
   return (
@@ -32,7 +32,7 @@ export default function DetailItem({ item, selectUrl }: HistoryItemProps) {
             <Button
               className="bg-[#0077B20D] hover:bg-[#0077B20D] hover:cursor-pointer text-primary h-6"
               size="icon"
-              onClick={() => selectUrl(item.id)}
+              onClick={() => selectUrl(item.id, 'analysis')}
             >
               <ArrowUpRight className="size-5" />
             </Button>

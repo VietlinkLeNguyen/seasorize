@@ -6,7 +6,7 @@ import HistoryItem from './HistoryItem';
 
 interface ListHistoryProps {
   listUrls: History[];
-  selectHistory: (id: number) => void;
+  selectHistory: (id: number, tab: 'list' | 'detail' | 'analysis') => void;
 }
 export function ListHistory({ listUrls, selectHistory }: ListHistoryProps) {
   const { histories } = useHistory();
