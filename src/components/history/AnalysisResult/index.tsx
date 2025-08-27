@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import ImageItem from './ImageItem';
+import ScrubberItem from './ScrubberItem';
 
 export default function AnalysisResult() {
   return (
@@ -28,13 +29,14 @@ export default function AnalysisResult() {
           />
           <ImageItem
             title="現在"
-            url="/image.png"
+            url="/current.png"
             filename="current-image.png"
           />
-          <ImageItem
+          <ScrubberItem
             title="差異"
             url="/image.png"
-            filename="difference-image.png"
+            currentImage="/current.png"
+            baseImage="/image.png"
           />
         </div>
       </CardContent>

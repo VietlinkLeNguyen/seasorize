@@ -2,22 +2,22 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { Download, Maximize2 } from 'lucide-react';
 import { useState } from 'react';
-import { ImageModal } from './image-modal';
 import { ScrubberModal } from './scrubber-modal';
 interface ImageItemProps {
   title: string;
+  baseImage: string;
+  currentImage: string;
   url: string;
-  filename: string;
 }
 
-export default function ImageItem(image: ImageItemProps) {
+export default function ScrubberItem(image: ImageItemProps) {
   const [imageModal, setImageModal] = useState<boolean>(true);
 
   const downloadImage = () => {
     if (!image) return;
     const link = document.createElement('a');
     link.href = image.url;
-    link.download = image.filename;
+    link.download = 'difference-image.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -61,19 +61,11 @@ export default function ImageItem(image: ImageItemProps) {
             className="w-full h-auto rounded"
           />
         </DialogTrigger>
-        {image.filename === 'difference-image.png' ? (
-          <ScrubberModal
-            isOpen={imageModal}
-            baselineImage={image.url}
-            currentImage={image.url}
-          />
-        ) : (
-          <ImageModal
-            isOpen={imageModal}
-            imageUrl={image.url}
-            title={image.title}
-          />
-        )}
+        <ScrubberModal
+          isOpen={imageModal}
+          baselineImage={image.baseImage}
+          currentImage={image.currentImage}
+        />
       </Dialog>
     </div>
   );
