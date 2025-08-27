@@ -36,11 +36,9 @@ export function ImageModal({ isOpen, imageUrl, title }: ImageModalProps) {
       }
     };
 
-    if (isOpen) {
-      setTimeout(updateSize, 100); // Small delay for modal to render fully
-      window.addEventListener('resize', updateSize);
-      return () => window.removeEventListener('resize', updateSize);
-    }
+    setTimeout(updateSize, 100); // Small delay for modal to render fully
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
   }, [isOpen]);
 
   // Reset state when modal opens
@@ -103,8 +101,6 @@ export function ImageModal({ isOpen, imageUrl, title }: ImageModalProps) {
   };
 
   const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-
     if (e.ctrlKey || e.metaKey) {
       // Zoom with Ctrl/Cmd + wheel
       if (e.deltaY < 0) {
@@ -175,7 +171,8 @@ export function ImageModal({ isOpen, imageUrl, title }: ImageModalProps) {
               alt={title}
               className="w-full h-auto"
               style={{
-                transform: `translate(${position.x}px, ${position.y}px) scale(${zoom})`
+                transform: `translate(${position.x}px, ${position.y}px) scale(${zoom})`,
+                cursor: cursorStyle
               }}
               draggable={false}
             />

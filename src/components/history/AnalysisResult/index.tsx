@@ -21,9 +21,21 @@ export default function AnalysisResult() {
 
       <CardContent>
         <div className="grid grid-cols-3 gap-4">
-          <ImageItem title="ベースライン" url="/image.png" />
-          <ImageItem title="現在" url="/image.png" />
-          <ImageItem title="差異" url="/image.png" />
+          <ImageItem
+            title="ベースライン"
+            url="/image.png"
+            filename="baseline-image.png"
+          />
+          <ImageItem
+            title="現在"
+            url="/image.png"
+            filename="current-image.png"
+          />
+          <ImageItem
+            title="差異"
+            url="/image.png"
+            filename="difference-image.png"
+          />
         </div>
       </CardContent>
     </Card>

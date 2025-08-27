@@ -6,52 +6,25 @@ import { ImageModal } from './image-modal';
 interface ImageItemProps {
   title: string;
   url: string;
+  filename: string;
 }
-export interface ImageModalState {
-  isOpen: boolean;
-  image: string;
-  title: string;
-  downloadFilename: string;
-}
-const initImageModel = {
-  isOpen: false,
-  image: '',
-  title: '',
-  downloadFilename: ''
-};
+
 export default function ImageItem(image: ImageItemProps) {
-  const [imageModal, setImageModal] = useState<ImageModalState>(initImageModel);
+  const [imageModal, setImageModal] = useState<boolean>(true);
 
-  const openImageModal = (
-    image: string | null,
-    title: string,
-    downloadFilename: string
-  ) => {
-    if (!image) return;
-    setImageModal({
-      isOpen: true,
-      image,
-      title,
-      downloadFilename
-    });
-  };
-
-  const downloadImage = (image: string | null, filename: string) => {
+  const downloadImage = () => {
     if (!image) return;
     const link = document.createElement('a');
-    link.href = image;
-    link.download = filename;
+    link.href = image.url;
+    link.download = image.filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  const closeImageModal = () => {
-    setImageModal(initImageModel);
-  };
   return (
     <div>
-      <Dialog>
+      <Dialog onOpenChange={() => setImageModal(!imageModal)}>
         <div className="flex items-center justify-between mb-2">
           <h4 className="font-semibold text-[16px] leading-[22px]">
             {image.title}
@@ -59,21 +32,15 @@ export default function ImageItem(image: ImageItemProps) {
           <div className="flex gap-3">
             <>
               <Button
-                onClick={() => downloadImage(image.url, 'baseline-image.png')}
+                onClick={() => downloadImage()}
                 size="sm"
                 className="bg-[#858D9D1A] text-[#303943] w-8"
               >
                 <Download />
               </Button>
-              <DialogTrigger>
+              <DialogTrigger asChild>
                 <Button
-                  onClick={() =>
-                    openImageModal(
-                      image.url,
-                      't.step3.baseline',
-                      'baseline-image.png'
-                    )
-                  }
+                  onClick={() => setImageModal(true)}
                   size="sm"
                   className="bg-[#858D9D1A] text-[#303943] w-8"
                 >
@@ -84,21 +51,19 @@ export default function ImageItem(image: ImageItemProps) {
           </div>
         </div>
         <DialogTrigger
+          asChild
           className="border rounded-lg p-2 cursor-pointer hover:border-gray-400 transition-colors w-full"
-          onClick={() =>
-            openImageModal(image.url, 't.step3.baseline', 'baseline-image.png')
-          }
         >
           <img
             src={image.url || '/placeholder.svg'}
-            alt="Baseline"
+            alt={image.title}
             className="w-full h-auto rounded"
           />
         </DialogTrigger>
 
         <ImageModal
-          isOpen={imageModal.isOpen}
-          imageUrl={imageModal.image}
+          isOpen={imageModal}
+          imageUrl={image.url}
           title={image.title}
         />
       </Dialog>
